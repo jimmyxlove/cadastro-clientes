@@ -1,0 +1,19 @@
+:root{--bg:#f5f7fb;--accent:#2b6cb0;--muted:#666}
+body{font-family:Inter, system-ui, sans-serif;background:var(--bg);color:#111;margin:0}
+.container{max-width:900px;margin:24px auto;padding:12px}
+.site-header{background:#fff;border-bottom:1px solid #e6e9ef;padding:12px 0}
+.site-header h1{margin:0;font-size:20px}
+nav a{margin-left:12px;text-decoration:none;color:var(--accent)}
+.table{width:100%;border-collapse:collapse;background:#fff}
+.table th,.table td{padding:8px;border-bottom:1px solid #eee;text-align:left}
+.btn{display:inline-block;padding:8px 12px;background:var(--accent);color:#fff;text-decoration:none;border-radius:6px}
+.btn.alt{background:#e2e8f0;color:#111}
+form label{display:block;margin:8px 0}
+input[type="text"],input[type="email"]{width:100%;padding:8px;border:1px solid #ddd;border-radius:6px}
+.flashes{list-style:none;padding:0}
+.flash{padding:8px;margin:8px 0;border-radius:6px}
+.flash.success{background:#e6fffa;border:1px solid #b2f5ea}
+.flash.error{background:#fff5f5;border:1px solid #fed7d7}
+.inline{display:inline}
+.link-like{background:none;border:none;color:var(--accent);cursor:pointer;text-decoration:underline;padding:0}
+@media (max-width:600px){.table thead{display:none}.table td{display:block}}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ 'Editar cliente' if editar else 'Adicionar cliente' }}</h2>
+<form method="post" novalidate>
+  <label>Nome
+    <input name="nome" required value="{{ cliente.get('nome') if cliente else '' }}">
+  </label>
+  <label>Email
+    <input name="email" type="email" required value="{{ cliente.get('email') if cliente else '' }}">
+  </label>
+  <label>Telefone
+    <input name="telefone" value="{{ cliente.get('telefone') if cliente else '' }}">
+  </label>
+  <label>Endereço
+    <input name="endereco" value="{{ cliente.get('endereco') if cliente else '' }}">
+  </label>
+  <div class="form-actions">
+    <button type="submit" class="btn">Salvar</button>
+    <a class="btn alt" href="{{ url_for('index') }}">Cancelar</a>
+  </div>
+</form>
+{% endblock %}

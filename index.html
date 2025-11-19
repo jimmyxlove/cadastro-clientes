@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Lista de clientes</h2>
+<p><a class="btn" href="{{ url_for('adicionar') }}">+ Novo cliente</a></p>
+{% if clientes %}
+  <table class="table">
+    <thead><tr><th>Nome</th><th>Email</th><th>Telefone</th><th>Ações</th></tr></thead>
+    <tbody>
+    {% for c in clientes %}
+      <tr>
+        <td>{{ c['nome'] }}</td>
+        <td>{{ c['email'] }}</td>
+        <td>{{ c['telefone'] or '-' }}</td>
+        <td>
+          <a href="{{ url_for('editar', cliente_id=c['id']) }}">Editar</a>
+          <form class="inline" method="post" action="{{ url_for('deletar', cliente_id=c['id']) }}" onsubmit="return confirmDelete();">
+            <button type="submit" class="link-like">Deletar</button>
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>Nenhum cliente cadastrado ainda.</p>
+{% endif %}
+{% endblock %}

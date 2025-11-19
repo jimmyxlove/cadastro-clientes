@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Buscar clientes</h2>
+<form method="get" action="{{ url_for('buscar') }}">
+  <input name="q" placeholder="Nome, email ou telefone" value="{{ q or '' }}">
+  <button type="submit">Buscar</button>
+</form>
+{% if clientes is defined %}
+  <h3>Resultados</h3>
+  {% if clientes %}
+    <ul>
+      {% for c in clientes %}
+        <li>{{ c['nome'] }} — {{ c['email'] }} — {{ c['telefone'] or '-' }}
+         [<a href="{{ url_for('editar', cliente_id=c['id']) }}">editar</a>]
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Nenhum resultado.</p>
+  {% endif %}
+{% endif %}
+{% endblock %}
